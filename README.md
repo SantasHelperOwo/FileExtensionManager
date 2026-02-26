@@ -28,3 +28,26 @@ Repository Link: https://github.com/SantasHelperOwo/FileExtensionManager
 2. Git Documentation: https://git-scm.com/docs  
 3. GitHub Guides: https://docs.github.com/en  
 4. Stack Overflow discussions on Python file handling
+
+## Installation and Usage
+
+To set up and run the File Extension Manager:
+
+1. Clone the repository:
+git clone https://github.com/SantasHelperOwo/FileExtensionManager.git
+
+2. Navigate into the project folder:
+cd FileExtensionManager
+
+3. Make sure Python 3 is installed on your system.
+Run the program using: python main.py
+
+
+When executed, the program will display a menu with options:
+1. Scan directory  
+2. Categorize files  
+3. Rename files  
+4. Revert files  
+5. Exit  
+
+Enter the number corresponding to the action you want to perform. The program will execute the function and return to the menu until you choose Exit.
