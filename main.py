@@ -1,3 +1,14 @@
+import os
+
+def scan_directory(path="."):
+    try:
+        files = os.listdir(path)
+        print("\nFiles in directory:")
+        for f in files:
+            print(f)
+    except FileNotFoundError:
+        print("Directory not found.")
+
 def main():
     while True:
         print("\nFile Extension Manager")
@@ -9,7 +20,7 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            print("Scanning directory... (function coming soon)")
+            scan_directory()
         elif choice == "2":
             print("Categorizing files... (function coming soon)")
         elif choice == "3":
