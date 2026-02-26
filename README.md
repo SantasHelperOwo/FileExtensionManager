@@ -51,3 +51,15 @@ When executed, the program will display a menu with options:
 5. Exit  
 
 Enter the number corresponding to the action you want to perform. The program will execute the function and return to the menu until you choose Exit.
+
+## Future Improvements
+
+While the File Extension Manager fulfills the current coursework requirements, there are several possible enhancements that could be implemented in the future:
+
+- **Graphical User Interface (GUI):** Adding a simple GUI would make the tool more user‑friendly and accessible to non‑technical users.
+- **Advanced Categorization:** Extend file grouping beyond extensions, such as by file size, creation date, or metadata.
+- **Batch Operations:** Allow multiple directories to be scanned and managed at once.
+- **Logging and Reports:** Generate logs or summary reports of actions performed for better tracking and documentation.
+- **Cross‑Platform Packaging:** Distribute the tool as an executable for Windows, macOS, and Linux, removing the need for Python installation.
+
+These improvements would expand the tool’s usability and demonstrate how coursework projects can evolve into more practical, real‑world applications.
