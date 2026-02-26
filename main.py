@@ -9,6 +9,38 @@ def scan_directory(path="."):
     except FileNotFoundError:
         print("Directory not found.")
 
+def categorize_files(path="."):
+    categories = {
+        "Images": [".jpg", ".jpeg", ".png", ".gif"],
+        "Documents": [".txt", ".pdf", ".docx"],
+        "Executables": [".exe", ".bat", ".sh"],
+        "Others": []
+    }
+
+    categorized = {"Images": [], "Documents": [], "Executables": [], "Others": []}
+
+    try:
+        files = os.listdir(path)
+        for f in files:
+            ext = os.path.splitext(f)[1].lower()
+            found = False
+            for category, extensions in categories.items():
+                if ext in extensions:
+                    categorized[category].append(f)
+                    found = True
+                    break
+            if not found:
+                categorized["Others"].append(f)
+
+        print("\nCategorized files:")
+        for category, items in categorized.items():
+            print(f"{category}:")
+            for item in items:
+                print(f"  {item}")
+
+    except FileNotFoundError:
+        print("Directory not found.")
+
 def main():
     while True:
         print("\nFile Extension Manager")
@@ -22,7 +54,7 @@ def main():
         if choice == "1":
             scan_directory()
         elif choice == "2":
-            print("Categorizing files... (function coming soon)")
+            categorize_files()
         elif choice == "3":
             print("Renaming files... (function coming soon)")
         elif choice == "4":
