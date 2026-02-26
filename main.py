@@ -1,5 +1,7 @@
 import os
 
+rename_history = {}
+
 def scan_directory(path="."):
     try:
         files = os.listdir(path)
@@ -41,13 +43,55 @@ def categorize_files(path="."):
     except FileNotFoundError:
         print("Directory not found.")
 
+def rename_files(path="."):
+    global rename_history
+    rename_history = {}
+    try:
+        files = os.listdir(path)
+        counter = {}
+
+        for f in files:
+            ext = os.path.splitext(f)[1].lower()
+            if ext == "":
+                continue
+
+            if ext not in counter:
+                counter[ext] = 1
+            else:
+                counter[ext] += 1
+
+            new_name = f"file_{counter[ext]}{ext}"
+            old_path = os.path.join(path, f)
+            new_path = os.path.join(path, new_name)
+
+            os.rename(old_path, new_path)
+            rename_history[new_name] = f
+            print(f"Renamed: {f} -> {new_name}")
+
+    except FileNotFoundError:
+        print("Directory not found.")
+    except PermissionError:
+        print("Permission denied while renaming files.")
+
+def revert_files(path="."):
+    global rename_history
+    try:
+        for new_name, old_name in rename_history.items():
+            new_path = os.path.join(path, new_name)
+            old_path = os.path.join(path, old_name)
+            os.rename(new_path, old_path)
+            print(f"Reverted: {new_name} -> {old_name}")
+    except Exception as e:
+        print(f"Error: {e}")
+
 def main():
     while True:
         print("\nFile Extension Manager")
         print("1. Scan directory")
         print("2. Categorize files by extension")
         print("3. Rename files by extension")
-        print("4. Exit")
+        print("4. Revert renamed files")
+        print("5. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -56,8 +100,10 @@ def main():
         elif choice == "2":
             categorize_files()
         elif choice == "3":
-            print("Renaming files... (function coming soon)")
+            rename_files()
         elif choice == "4":
+            revert_files()
+        elif choice == "5":
             print("Exiting program.")
             break
         else:
