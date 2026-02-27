@@ -60,7 +60,9 @@ Run the program using: py main.py "path_to_folder"
 3.Revert files
 4.Exit
 -Enter the number for the action you want. The program runs the function and returns to the menu until you choose Exit.
+
 ##Future Improvements
+
 =Some possible improvements:
 
 -Add a simple GUI for easier use
