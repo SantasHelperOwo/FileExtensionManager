@@ -63,12 +63,12 @@ Run the program using: py main.py "path_to_folder"
 
 ##Future Improvements
 
-=Some possible improvements:
+Some possible improvements:
 
--Add a simple GUI for easier use
--More advanced categorization (by size, date, metadata)
--Batch operations across multiple folders
--Logging or reports of actions performed
--Packaging as an executable for Windows/macOS/Linux
+Add a simple GUI for easier use
+More advanced categorization (by size, date, metadata)
+Batch operations across multiple folders
+Logging or reports of actions performed
+Packaging as an executable for Windows/macOS/Linux
 
 These would make the tool more practical and closer to real-world applications.
