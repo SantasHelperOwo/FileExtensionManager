@@ -1,13 +1,16 @@
 import os
+import sys
 
 rename_history = {}
 
 def scan_directory(path="."):
     try:
         files = os.listdir(path)
-        print("\nFiles in directory:")
+        print(f"\nFiles in directory: {path}")
+        if not files:
+            print("  [No files found]")
         for f in files:
-            print(f)
+            print(f"  {f}")
     except FileNotFoundError:
         print("Directory not found.")
 
@@ -34,9 +37,11 @@ def categorize_files(path="."):
             if not found:
                 categorized["Others"].append(f)
 
-        print("\nCategorized files:")
+        print(f"\nCategorized files in: {path}")
         for category, items in categorized.items():
             print(f"{category}:")
+            if not items:
+                print("  [None]")
             for item in items:
                 print(f"  {item}")
 
@@ -85,6 +90,12 @@ def revert_files(path="."):
         print(f"Error: {e}")
 
 def main():
+    # Allow user to pass a folder path when running the program
+    if len(sys.argv) > 1:
+        path = sys.argv[1]
+    else:
+        path = os.getcwd()
+
     while True:
         print("\nFile Extension Manager")
         print("1. Scan directory")
@@ -96,13 +107,13 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            scan_directory()
+            scan_directory(path)
         elif choice == "2":
-            categorize_files()
+            categorize_files(path)
         elif choice == "3":
-            rename_files()
+            rename_files(path)
         elif choice == "4":
-            revert_files()
+            revert_files(path)
         elif choice == "5":
             print("Exiting program.")
             break
