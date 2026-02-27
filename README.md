@@ -61,14 +61,21 @@ Run the program using: py main.py "path_to_folder"
 4.Exit
 -Enter the number for the action you want. The program runs the function and returns to the menu until you choose Exit.
 
-##Future Improvements
+## Future Improvements
 
-Some possible improvements:
+While the File Extension Manager meets the coursework requirements, there are a few ideas that could make it better in the future:
 
-1.Add a simple GUI for easier use
-2.More advanced categorization (by size, date, metadata)
-3.Batch operations across multiple folders
-4.Logging or reports of actions performed
-5.Packaging as an executable for Windows/macOS/Linux
+1. **Add a simple GUI**  
+   A graphical interface would make the tool easier to use for non‑technical users.
 
-These would make the tool more practical and closer to real-world applications.
+2. **Advanced categorization**  
+   Group files not only by extension but also by size, date, or metadata.
+
+3. **Batch operations**  
+   Allow scanning and managing multiple folders at once.
+
+4. **Logging and reports**  
+   Generate logs or summary reports of actions performed for better tracking.
+
+5. **Cross‑platform packaging**  
+   Distribute the tool as an executable for Windows, macOS, and Linux so Python doesn’t need to be installed.
